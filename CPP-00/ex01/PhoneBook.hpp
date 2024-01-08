@@ -1,10 +1,13 @@
 #include <iostream>
-#include <string>
+#include "Contact.hpp"
 
 class PhoneBook
 {
     private:
-        int         index;
-        std::string firstname;
-
+        Contact Contacts[8];
+        int     idx;
+    public:
+        void    add();
+        void    search();
+        void    display();
 }
