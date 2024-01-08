@@ -9,9 +9,11 @@ END_COLOR	:= \033[0;39m
 # **************************************************************************** #
 # VARIABLES
 
-SRCS	=	megaphone.cpp
+SRCS	=	Contact.cpp \
+			PhoneBook.cpp \
+			main.cpp
 OBJS	=	${SRCS:.cpp=.o}
-NAME	=	megaphone
+NAME	=	phonebook
 CC		=	c++
 CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 

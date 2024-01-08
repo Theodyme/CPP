@@ -1,58 +1,63 @@
 #include <iostream>
 #include "Contact.hpp"
 
-std::string Contact::get_firstname() const
-{
+/* ------------------------------- getters ------------------------------- */
 
+
+std::string	Contact::get_firstname() const
+{
+	return this->firstname;
 }
 
-std::string Contact::get_lastname() const
+std::string	Contact::get_lastname() const
 {
-
+	return this->lastname;
 }
 
-std::string Contact::get_nickname() const
+std::string	Contact::get_nickname() const
 {
-
+	return this->nickname;
 }
 
-std::string Contact::get_nbr() const
+std::string	Contact::get_nbr() const
 {
-
+	return this->number;
 }
 
-
-std::string Contact::get_nbr() const
+std::string	Contact::get_secret() const
 {
-
+	return this->secret;
 }
 
-std::string Contact::get_secret() const
-{
+/* ------------------------------- setters ------------------------------- */
 
+
+void	Contact::set_firstname(std::string fname)
+{
+	this->firstname = fname;
+	return ;
 }
 
-void    Contact::set_firstname(std::string fname)
+void	Contact::set_lastname(std::string lname)
 {
-
+	this->lastname = lname;
+	return ;
 }
 
-void    Contact::set_lastname(std::string lname)
+void	Contact::set_nickname(std::string nname)
 {
-    
+	this->nickname = nname;
+	return ;
 }
 
-void    Contact::set_nickname(std::string nname)
+void	Contact::set_number(std::string nbr)
 {
-    
+	this->number = nbr;
+	return ;
 }
 
-void    Contact::set_nbr(std::string nbr)
+void	Contact::set_secret(std::string secret)
 {
-    
-}
-
-void    Contact::set_secret(std::string secret)
-{
-    
+	this->secret = secret;
+	return ;
 }
