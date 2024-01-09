@@ -19,7 +19,7 @@ std::string	Contact::get_nickname() const
 	return this->nickname;
 }
 
-std::string	Contact::get_nbr() const
+std::string	Contact::get_number() const
 {
 	return this->number;
 }

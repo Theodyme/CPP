@@ -15,7 +15,7 @@ class Contact
 		std::string	get_firstname(void) const;
 		std::string	get_lastname(void) const;
 		std::string	get_nickname(void) const;
-		std::string	get_nbr(void) const;
+		std::string	get_number(void) const;
 		std::string	get_secret(void) const;
 		void		set_firstname(std::string fname);
 		void		set_lastname(std::string lname);
