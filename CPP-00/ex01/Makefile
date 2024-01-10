@@ -39,6 +39,6 @@ fclean: clean
 	@echo "$(YELLOW)Cleaned libraries and $(NAME) executable.$(END_COLOR)"
 
 re:		fclean all
-	@echo "$(GREEN)Cleaned all and rebuilt $(NAME) and $(LIB)!$(END_COLOR)"
+	@echo "$(GREEN)Cleaned all and rebuilt $(NAME)$(END_COLOR)"
 
 .PHONY:	all clean fclean re
