@@ -11,6 +11,7 @@ int main(int ac, char **av)
 	(void)av;
 	if (ac > 1)
 		return 1;
+	std::cout << "\n";
 	std::cout << BL << "⬥ Welcome to " << GR << "Triton™ Phonebook" << BL << ", the only phone assistant you'll ever need! How may I help you?\n" << WH;
 	while(input != "EXIT")
 	{
@@ -21,7 +22,7 @@ int main(int ac, char **av)
 		std::cout << BL << "⬦ " << WH;
 		if (!std::getline(std::cin, input))
 		{
-			std::cout << BL << "⬥ Oops. Something went wrong. Bye!\n" << WH;
+			std::cout << BL << "⬥ Oops. Something went wrong.\n" << WH;
 			break;
 		}
 		if (input == "ADD")
@@ -29,6 +30,6 @@ int main(int ac, char **av)
 		if (input == "SEARCH")
 			phonebook.search();
 	}
-	std::cout << BL << "⬥ Goodbye, have a nice day~!\n" << WH;
+	std::cout << BL << "⬥ Bye, have a wonderful day~!\n" << WH;
 	return 0;
 }
