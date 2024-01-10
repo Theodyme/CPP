@@ -2,21 +2,14 @@
 #include <iostream>
 #include "PhoneBook.hpp"
 
-int		PhoneBook::get_size()
-{
-	int i;
-	for(i = 0; !(this->contacts[i].get_firstname().empty()); i++);
-	// std::cout << i << std::endl;
-	return i;
-}
-
 void	PhoneBook::add()
 {
 	std::string input = "";
 
+	std::cout << "PRINT HERE: idx = " << this->idx << " || cnt = " << this->cnt << "\n";
 	if (this->idx == 0)
 		std::cout << "Sure we can! ~\n";
-	else if (this->get_size() == 8)
+	else if (this->cnt == 8)
 	{
 		std::cout << "> It seems like your contacts are full. Adding a new one will overwrite " << this->contacts[8 - idx].get_firstname() << ".\n";
 		std::cout << "> Would you still like to continue? YES/NO\n";
@@ -53,6 +46,8 @@ void	PhoneBook::add()
 	this->contacts[idx].set_secret(input);
 	input = "";
 
+	if (this->cnt < 8)
+		this->cnt++;
 	std::cout << "> " << this->contacts[idx].get_firstname() << " was successfully added to your contacts!\n";
 	this->idx++;
 	return ;
@@ -67,7 +62,7 @@ void	PhoneBook::display()
 {
 	int idx;
 
-	for(idx = 0; idx <= this->get_size(); idx++)
+	for(idx = 0; idx < this->cnt; idx++)
 	{
 		std::cout << "|" << std::left << std::setw(10) << this->contacts[idx].get_firstname();
 		std::cout << "|" << std::left << std::setw(10) << this->contacts[idx].get_lastname();
@@ -82,7 +77,7 @@ void	PhoneBook::search()
 {
 	std::string input;
 
-	if (this->get_size() == 0)
+	if (this->cnt == 0)
 	{
 		std::cout << "> Oops! It seems like your phonebook is empty.\n";
 		return;
