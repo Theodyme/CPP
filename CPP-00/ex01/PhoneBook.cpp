@@ -116,7 +116,7 @@ void	PhoneBook::search()
 		exit(0);
 	while ((input.size() != 1) || (input[0] - '0') >= this->cnt)
 	{
-		std::cout  << BL << "⬥ " << PU << "Invalid input. (" << (input[0] - '0') << ") Please enter a number between 0 and " << this->cnt << "\n⬦ " << WH;
+		std::cout  << BL << "⬥ " << PU << "Invalid input. (" << (input[0] - '0') << ") Please enter a number up to " << (this->cnt - 1) << "\n⬦ " << WH;
 		if (!std::getline(std::cin, input))
 			exit(0);
 	}

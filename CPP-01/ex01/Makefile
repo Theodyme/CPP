@@ -11,7 +11,7 @@ END_COLOR	:= \033[0;39m
 
 SRCS	=	main.cpp \
 			newZombie.cpp \
-			randomChump.cpp \
+			zombieHorde.cpp \
 			Zombie.cpp
 OBJS	=	${SRCS:.cpp=.o}
 NAME	=	zombie
@@ -33,6 +33,7 @@ all:	${NAME}
 
 clean:
 	@rm -f ${OBJS}
+	@rm -f $(NAME)
 	@echo "$(YELLOW)Removed object files.$(END_COLOR)"
 
 fclean: clean
