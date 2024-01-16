@@ -10,7 +10,12 @@ int main(int ac, char **av)
         std::cout << "Wrong number of arguments.\n";
         return 1;
     }
-    Sed sed(av[1]);
-    sed.open_replace(av[2], av[3]);
+
+    std::string filename(av[1]);
+    std::string needle(av[2]);
+    std::string replace(av[3]);
+
+    Sed sed(filename);
+    sed.open_replace(needle, replace);
     return 0;
 }

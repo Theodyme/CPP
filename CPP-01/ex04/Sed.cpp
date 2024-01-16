@@ -8,14 +8,16 @@ Sed::Sed(std::string filename) : _infile(filename), _outfile(filename + ".replac
 
 }
 
+Sed::~Sed()
+{
+
+}
+
 void    Sed::open_replace(std::string needle, std::string replace)
 {
-    std::ifstream   input;
-    std::ofstream   output;
+    std::ifstream   input(this->_infile.c_str());
     std::string     line;
     size_t             pos;
-
-    input.open(this->_infile);
 
     if (!input.is_open())
     {
@@ -25,7 +27,7 @@ void    Sed::open_replace(std::string needle, std::string replace)
 
     if (std::getline(input, line, '\0'))
     {
-        output.open(this->_outfile);
+        std::ofstream   output(this->_outfile.c_str());
         pos = line.find(needle);
         while (pos != std::string::npos)
         {

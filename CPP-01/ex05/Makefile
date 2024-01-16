@@ -10,9 +10,9 @@ END_COLOR	:= \033[0;39m
 # VARIABLES
 
 SRCS	=	main.cpp \
-			Sed.cpp
+			Harl.cpp
 OBJS	=	${SRCS:.cpp=.o}
-NAME	=	sed
+NAME	=	Harl
 CC		=	c++
 CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
@@ -31,6 +31,7 @@ all:	${NAME}
 
 clean:
 	@rm -f ${OBJS}
+	@rm -f $(NAME)
 	@echo "$(YELLOW)Removed object files.$(END_COLOR)"
 
 fclean: clean
