@@ -5,6 +5,11 @@
 #include "Colors.h"
 #include "PhoneBook.hpp"
 
+PhoneBook::PhoneBook() : idx(0), cnt(0)
+{
+
+}
+
 void	PhoneBook::add()
 {
 	std::string input = "";
@@ -22,39 +27,84 @@ void	PhoneBook::add()
 	else if (this->idx == 0)
 		std::cout << GR << "⬥ Sure we can~!\n" << WH;
 	std::cout << "\n";
-	std::cout << BL << "⬥ " << PU << "Please type in their infos as required.\n	First name: " << WH;
-	if (!std::getline(std::cin, input))
-		exit(0);
-	while (input == "")
+	std::cout << BL << "⬥ " << PU << "Please type in their infos as required.\n" << WH;
+while (input == "")
 	{
-		std::cout << BL << "⬥ A first name is mandatory!\n" << PU << "	Please enter a first name: " << WH;
+		std::cout << BL << "⬥ " << PU << "	First name: " << WH;
 		if (!std::getline(std::cin, input))
 			exit(0);
+		if (input == "")
+			std::cout << BL << "⬥ " << PU << "This info is mandatory!\n" << WH;
+		else if (input.find("\t") != std::string::npos)
+		{
+			std::cout << BL << "⬥ " << PU << "Tabulations are forbidden.\n" << WH;
+			input = "";
+		}
 	}
 	this->contacts[idx].set_firstname(input);
 	input = "";
 
-	std::cout << PU << "	Last name: " << WH;
-	if (!std::getline(std::cin, input))
-		exit(0);
+	while (input == "")
+	{
+		std::cout << BL << "⬥ " << PU << "	Last name: " << WH;
+		if (!std::getline(std::cin, input))
+			exit(0);
+		if (input == "")
+			std::cout << BL << "⬥ " << PU << "This info is mandatory!\n" << WH;
+		else if (input.find("\t") != std::string::npos)
+		{
+			std::cout << BL << "⬥ " << PU << "Tabulations are forbidden.\n" << WH;
+			input = "";
+		}
+	}
 	this->contacts[idx].set_lastname(input);
 	input = "";
 
-	std::cout << PU << "	Nickname: " << WH;
-	if (!std::getline(std::cin, input))
-		exit(0);
+	while (input == "")
+	{
+		std::cout << BL << "⬥ " << PU << "	Nickname: " << WH;
+		if (!std::getline(std::cin, input))
+			exit(0);
+		if (input == "")
+			std::cout << BL << "⬥ " << PU << "This info is mandatory!\n" << WH;
+		else if (input.find("\t") != std::string::npos)
+		{
+			std::cout << BL << "⬥ " << PU << "Tabulations are forbidden.\n" << WH;
+			input = "";
+		}
+	}
 	this->contacts[idx].set_nickname(input);
 	input = "";
 
-	std::cout << PU << "	Number: " << WH;
-	if (!std::getline(std::cin, input))
-		exit(0);
+	while (input == "")
+	{
+		std::cout << BL << "⬥ " << PU << "	Phone number: " << WH;
+		if (!std::getline(std::cin, input))
+			exit(0);
+		if (input == "")
+			std::cout << BL << "⬥ " << PU << "This info is mandatory!\n" << WH;
+		else if (input.find("\t") != std::string::npos)
+		{
+			std::cout << BL << "⬥ " << PU << "Tabulations are forbidden.\n" << WH;
+			input = "";
+		}
+	}
 	this->contacts[idx].set_number(input);
 	input = "";
 
-	std::cout << PU << "	Darkest secret: " << WH;
-	if (!std::getline(std::cin, input))
-		exit(0);
+	while (input == "")
+	{
+		std::cout << BL << "⬥ " << PU << "	Darkest secret: " << WH;
+		if (!std::getline(std::cin, input))
+			exit(0);
+		if (input == "")
+			std::cout << BL << "⬥ " << PU << "This info is mandatory!\n" << WH;
+		else if (input.find("\t") != std::string::npos)
+		{
+			std::cout << BL << "⬥ " << PU << "Tabulations are forbidden.\n" << WH;
+			input = "";
+		}
+	}
 	this->contacts[idx].set_secret(input);
 	input = "";
 
@@ -90,9 +140,21 @@ void	PhoneBook::display()
 	for(i = 0; i < this->cnt; i++)
 	{
 		std::cout << "	│" << WH << std::setw(10) << std::right << i;
-		std::cout << GR << "│" << WH << std::setw(10) << std::right << this->contacts[i].get_firstname().substr(0, 10);
-		std::cout << GR << "│" << WH << std::setw(10) << std::right << this->contacts[i].get_lastname().substr(0, 10);
-		std::cout << GR << "│" << WH << std::setw(10) << std::right << this->contacts[i].get_nickname().substr(0, 10) << GR << "│\n";
+
+		if (this->contacts[i].get_firstname().size() > 10)
+			std::cout << GR << "│" << WH << std::setw(10) << std::right << (this->contacts[i].get_firstname().substr(0, 9) + ".");
+		else
+			std::cout << GR << "│" << WH << std::setw(10) << std::right << this->contacts[i].get_firstname();
+
+		if (this->contacts[i].get_lastname().size() > 10)
+			std::cout << GR << "│" << WH << std::setw(10) << std::right << (this->contacts[i].get_lastname().substr(0, 9) + ".");
+		else
+			std::cout << GR << "│" << WH << std::setw(10) << std::right << this->contacts[i].get_lastname();
+
+		if (this->contacts[i].get_nickname().size() > 10)
+			std::cout << GR << "│" << WH << std::setw(10) << std::right << (this->contacts[i].get_nickname().substr(0, 9) + ".") << GR << "│\n";
+		else
+			std::cout << GR << "│" << WH << std::setw(10) << std::right << this->contacts[i].get_nickname() << GR << "│\n";
 	}
 	std::cout << "	╰──────────┴──────────┴──────────┴──────────╯\n" << WH ;
 	return;
@@ -105,7 +167,7 @@ void	PhoneBook::search()
 	std::cout << "\n";
 	if (this->cnt == 0)
 	{
-		std::cout  << BL << "⬥ " << PU << "⬥ Oops! It seems like your phonebook is empty.\n" << WH;
+		std::cout  << BL << "⬥ " << PU << "Oops! It seems like your phonebook is empty.\n" << WH;
 		return;
 	}
 	else
@@ -116,7 +178,7 @@ void	PhoneBook::search()
 		exit(0);
 	while ((input.size() != 1) || (input[0] - '0') >= this->cnt)
 	{
-		std::cout  << BL << "⬥ " << PU << "Invalid input. (" << (input[0] - '0') << ") Please enter a number up to " << (this->cnt - 1) << "\n⬦ " << WH;
+		std::cout  << BL << "⬥ " << PU << "Invalid input. Please enter a number up to " << (this->cnt - 1) << "\n⬦ " << WH;
 		if (!std::getline(std::cin, input))
 			exit(0);
 	}

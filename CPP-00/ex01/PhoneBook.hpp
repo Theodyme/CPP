@@ -8,7 +8,7 @@ class PhoneBook
 		int		idx;
 		int		cnt;
 	public:
-		PhoneBook() : idx(0), cnt(0) {};
+		PhoneBook();
 		void	add();
 		void	search();
 		void	display();
