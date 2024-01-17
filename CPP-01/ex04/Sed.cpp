@@ -31,6 +31,8 @@ void    Sed::open_replace(std::string needle, std::string replace)
         pos = line.find(needle);
         while (pos != std::string::npos)
         {
+			if (!needle.compare(""))
+				break ;
             line.erase(pos, needle.size());
             line.insert(pos, replace);
             pos = line.find(needle);
@@ -44,6 +46,6 @@ void    Sed::open_replace(std::string needle, std::string replace)
         input.close();
         return ;
     }
-    input.close();    
+    input.close();
     return ;
 }
