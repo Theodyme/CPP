@@ -159,7 +159,6 @@ void	PhoneBook::display()
 	std::cout << "	╰──────────┴──────────┴──────────┴──────────╯\n" << WH ;
 	return;
 }
-
 void	PhoneBook::search()
 {
 	std::string input;
