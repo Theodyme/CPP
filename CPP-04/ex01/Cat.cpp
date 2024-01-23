@@ -1,16 +1,17 @@
-#include "Dog.hpp"
+#include "Cat.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Dog::Dog() : Animal()
+Cat::Cat() : Animal()
 {
-	this->_type = "Dog";
-	std::cout << "It's actually a fierce, friendly " GR << this->_type << WH << " !\n";
+	this->_type = "Cat";
+	this->_brain = new Brain;
+	std::cout << "It's actually a cute little " GR << this->_type << WH << " !\n";
 }
 
-Dog::Dog(const Dog&src)
+Cat::Cat(const Cat&src)
 {
 	*this = src;
 }
@@ -20,9 +21,10 @@ Dog::Dog(const Dog&src)
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Dog::~Dog()
+Cat::~Cat()
 {
-	std::cout << "The affectionate " GR << this->_type << WH << " returns to its kennel.\n";
+	std::cout << "The tiny adorable " GR << this->_type << WH << " returns to its couch.\n";
+	delete this->_brain;
 }
 
 
@@ -30,11 +32,12 @@ Dog::~Dog()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Dog	&Dog::operator=(Dog const &rhs)
+Cat	&Cat::operator=(Cat const &rhs)
 {
 	if (this == &rhs)
 		return (*this);
-	setType(rhs.getType());
+	this->setType(rhs.getType());
+	this->_brain = new Brain(*rhs._brain);
 	return *this;
 }
 
@@ -42,9 +45,9 @@ Dog	&Dog::operator=(Dog const &rhs)
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	Dog::makeSound() const
+void	Cat::makeSound() const
 {
-	std::cout << "A loving and playful \"" GR << "Woof" << WH << "\" warms your heart.\n";
+	std::cout << "A small and warming \"" GR << "Meooow" << WH << "\" soothes your problems away.\n";
 }
 
 /*

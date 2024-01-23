@@ -32,7 +32,9 @@ Cat::~Cat()
 
 Cat	&Cat::operator=(Cat const &rhs)
 {
-	this->_type = rhs._type;
+	if (this == &rhs)
+		return (*this);
+	setType(rhs.getType());
 	return *this;
 }
 

@@ -1,28 +1,27 @@
-#include "Dog.hpp"
+#include "Brain.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Dog::Dog() : Animal()
+Brain::Brain()
 {
-	this->_type = "Dog";
-	std::cout << "It's actually a fierce, friendly " GR << this->_type << WH << " !\n";
+	std::cout << CY << "An intelligent life form " << WH << "grew in a head.\n";
 }
 
-Dog::Dog(const Dog&src)
+Brain::Brain(const Brain&src)
 {
+	std::cout << CY << "An intelligent life form " << WH << "grew in a head. (copy)\n";
 	*this = src;
 }
-
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Dog::~Dog()
+Brain::~Brain()
 {
-	std::cout << "The affectionate " GR << this->_type << WH << " returns to its kennel.\n";
+	std::cout << CY << "The intelligent life form " << WH << "shrinked back to nothingness.\n";
 }
 
 
@@ -30,11 +29,12 @@ Dog::~Dog()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Dog	&Dog::operator=(Dog const &rhs)
+Brain	&Brain::operator=(Brain const &rhs)
 {
 	if (this == &rhs)
 		return (*this);
-	setType(rhs.getType());
+	for (int i = 0; i < 100; i++)
+		this->_ideas[i] = rhs._ideas[i];
 	return *this;
 }
 
@@ -42,10 +42,6 @@ Dog	&Dog::operator=(Dog const &rhs)
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	Dog::makeSound() const
-{
-	std::cout << "A loving and playful \"" GR << "Woof" << WH << "\" warms your heart.\n";
-}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

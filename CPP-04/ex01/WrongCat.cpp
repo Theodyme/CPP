@@ -1,17 +1,18 @@
-#include "Dog.hpp"
+#include "WrongCat.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Dog::Dog() : Animal()
+WrongCat::WrongCat() : WrongAnimal()
 {
-	this->_type = "Dog";
-	std::cout << "It's actually a fierce, friendly " GR << this->_type << WH << " !\n";
+	this->_type = "WrongCat";
+	std::cout << "A " YE << this->_type << WH << " appears vaguely in the distance.\n";
 }
 
-Dog::Dog(const Dog&src)
+WrongCat::WrongCat(const WrongCat&src)
 {
+	std::cout << "A " YE << this->_type << WH << " appears vaguely in the distance. (copy)\n";
 	*this = src;
 }
 
@@ -20,9 +21,9 @@ Dog::Dog(const Dog&src)
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Dog::~Dog()
+WrongCat::~WrongCat()
 {
-	std::cout << "The affectionate " GR << this->_type << WH << " returns to its kennel.\n";
+	std::cout << "The " YE << this->_type << WH << " vanishes in a wave.\n";
 }
 
 
@@ -30,7 +31,7 @@ Dog::~Dog()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Dog	&Dog::operator=(Dog const &rhs)
+WrongCat	&WrongCat::operator=(WrongCat const &rhs)
 {
 	if (this == &rhs)
 		return (*this);
@@ -42,9 +43,9 @@ Dog	&Dog::operator=(Dog const &rhs)
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	Dog::makeSound() const
+void		WrongCat::makeSound() const
 {
-	std::cout << "A loving and playful \"" GR << "Woof" << WH << "\" warms your heart.\n";
+	std::cout << "A faint, defective " << YE << "meow" << WH << " deforms space and time.\n";
 }
 
 /*
