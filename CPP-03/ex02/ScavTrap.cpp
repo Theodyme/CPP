@@ -28,6 +28,19 @@ ScavTrap::~ScavTrap()
 }
 
 /*
+** --------------------------------- OVERLOAD ---------------------------------
+*/
+
+ScavTrap	&ScavTrap::operator=(ScavTrap const &rhs)
+{
+	this->_name = rhs._name;
+	this->_hitpts = rhs._hitpts;
+	this->_energy = rhs._energy;
+	this->_attack_dmg = rhs._attack_dmg;
+	return *this;
+}
+
+/*
 ** --------------------------------- METHODS ----------------------------------
 */
 

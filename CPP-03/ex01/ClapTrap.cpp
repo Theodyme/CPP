@@ -44,35 +44,35 @@ ClapTrap	&ClapTrap::operator=(ClapTrap const &rhs)
 void ClapTrap::attack(const std::string& target)
 {
 	if (this->_energy == 0)
-		std::cout << "ClapTrap " << this->_name << " has no energy. He can't attack!\n";
+		std::cout << this->_name << " has no energy. He can't attack!\n";
 	else
 	{
 		this->_energy--;
-		std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->_attack_dmg << " points of damage!\n";
+		std::cout << this->_name << " attacks " << target << ", causing " << this->_attack_dmg << " points of damage!\n";
 	}
 }
 void ClapTrap::takeDamage(unsigned int amount)
 {
 	if (this->_hitpts < amount)
 	{
-		std::cout << "ClapTrap " << this->_name << " gets hit and lose " << this->_hitpts << " hitpoints. He's at death's door !\n";
+		std::cout << this->_name << " gets hit and lose " << this->_hitpts << " hitpoints. He's at death's door !\n";
 		this->_hitpts = 0;
 	}
 	else
 	{
-		std::cout << "ClapTrap " << this->_name << " gets hit and lose " << amount << " hitpoints.\n";
+		std::cout << this->_name << " gets hit and lose " << amount << " hitpoints.\n";
 		this->_hitpts -= amount;
 	}
 }
 void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (this->_energy == 0)
-		std::cout << "ClapTrap " << this->_name << " has no energy. He can't attack!\n";
+		std::cout << this->_name << " has no energy. He can't attack!\n";
 	else
 	{
 		this->_hitpts += amount;
 		this->_energy--;
-		std::cout << "ClapTrap " << this->_name << " repairs and recovers " << amount << " hitpoints.\n";
+		std::cout << this->_name << " repairs and recovers " << amount << " hitpoints.\n";
 	}
 }
 

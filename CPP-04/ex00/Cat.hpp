@@ -12,10 +12,9 @@ class Cat : public Animal
 		Cat(Cat const &src);
 		~Cat();
 		Cat &operator=(Cat const &rhs);
+
+		void	makeSound() const;
 	private:
 };
-
-std::ostream &operator<<(std::ostream &o, Cat const &instance);
-
 
 #endif /* ************************************************************* CAT_HPP */

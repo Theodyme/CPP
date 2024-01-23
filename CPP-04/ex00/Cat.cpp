@@ -1,12 +1,13 @@
-
-
 #include "Cat.hpp"
+
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Cat::Cat() : Animal(), _type(Cat)
+Cat::Cat() : Animal()
 {
+	this->_type = "Cat";
+	std::cout << "It's actually a cute little " GR << this->_type << WH << " !\n";
 }
 
 Cat::Cat(const Cat&src)
@@ -21,6 +22,7 @@ Cat::Cat(const Cat&src)
 
 Cat::~Cat()
 {
+	std::cout << "The tiny adorable " GR << this->_type << WH << " returns to its couch.\n";
 }
 
 
@@ -30,18 +32,18 @@ Cat::~Cat()
 
 Cat	&Cat::operator=(Cat const &rhs)
 {
+	this->_type = rhs._type;
 	return *this;
 }
 
-std::ostream &operator<<(std::ostream &o, Cat const &instance)
-{
-	//o << instance.value;
-	//return (o);
-}
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
+void	Cat::makeSound() const
+{
+	std::cout << "A small and warming \"" GR << "Meooow" << WH << "\" soothes your problems away.\n";
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

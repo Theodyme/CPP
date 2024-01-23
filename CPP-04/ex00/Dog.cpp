@@ -1,12 +1,13 @@
-
-
 #include "Dog.hpp"
+
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Dog::Dog()
+Dog::Dog() : Animal()
 {
+	this->_type = "Dog";
+	std::cout << "It's actually a fierce, friendly " GR << this->_type << WH << " !\n";
 }
 
 Dog::Dog(const Dog&src)
@@ -21,6 +22,7 @@ Dog::Dog(const Dog&src)
 
 Dog::~Dog()
 {
+	std::cout << "The affectionate " GR << this->_type << WH << " returns to its kennel.\n";
 }
 
 
@@ -30,18 +32,18 @@ Dog::~Dog()
 
 Dog	&Dog::operator=(Dog const &rhs)
 {
+	this->_type = rhs._type;
 	return *this;
 }
 
-std::ostream &operator<<(std::ostream &o, Dog const &instance)
-{
-	//o << instance.value;
-	//return (o);
-}
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
+void	Dog::makeSound() const
+{
+	std::cout << "A loving and playful \"" GR << "Woof" << WH << "\" warms your heart.\n";
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

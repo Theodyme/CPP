@@ -10,9 +10,13 @@ END_COLOR	:= \033[0;39m
 # VARIABLES
 
 SRCS	=	main.cpp \
-			ClapTrap.cpp
+			Animal.cpp \
+			Dog.cpp \
+			Cat.cpp \
+			WrongAnimal.cpp \
+			WrongCat.cpp
 OBJS	=	${SRCS:.cpp=.o}
-NAME	=	claptrap
+NAME	=	jungle
 CC		=	c++
 CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
@@ -38,6 +42,6 @@ fclean: clean
 	@echo "$(YELLOW)Cleaned libraries and $(NAME) executable.$(END_COLOR)"
 
 re:		fclean all
-	@echo "$(GREEN)Cleaned all and rebuilt $(NAME) and $(LIB)!$(END_COLOR)"
+	@echo "$(GREEN)Cleaned all and rebuilt $(NAME)!$(END_COLOR)"
 
 .PHONY:	all clean fclean re%

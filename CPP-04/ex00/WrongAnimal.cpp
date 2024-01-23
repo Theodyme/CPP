@@ -1,17 +1,17 @@
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Animal::Animal() : _type("Unknown scary beast")
+WrongAnimal::WrongAnimal() : _type("Bugged monstruosity")
 {
-	std::cout << "An " BL << this->_type << WH << " awakens from the concrete jungle.\n";
+	std::cout << "An " RE << this->_type << WH << " tears your screen open.\n";
 }
 
-Animal::Animal(const Animal&src)
+WrongAnimal::WrongAnimal(const WrongAnimal&src)
 {
-	std::cout << "An " BL << this->_type << WH << " awakens from the concrete jungle. (copy)\n";
+	std::cout << "An " RE << this->_type << WH << " tears your screen open. (copy)\n";
 	*this = src;
 }
 
@@ -20,9 +20,9 @@ Animal::Animal(const Animal&src)
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Animal::~Animal()
+WrongAnimal::~WrongAnimal()
 {
-	std::cout << "The " BL << this->_type << WH << " returns to its lair.\n";
+	std::cout << "The " RE << this->_type << WH << " disappears in the black pixels.\n";
 }
 
 
@@ -30,7 +30,7 @@ Animal::~Animal()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Animal	&Animal::operator=(Animal const &rhs)
+WrongAnimal	&WrongAnimal::operator=(WrongAnimal const &rhs)
 {
 	if (this == &rhs)
 		return (*this);
@@ -42,21 +42,21 @@ Animal	&Animal::operator=(Animal const &rhs)
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	Animal::makeSound() const
+void		WrongAnimal::makeSound() const
 {
-	std::cout << "A " BL << "terrifying noise" << WH << " you can't recognize echoes in the streets.\n";
+	std::cout << "A " RE << "glitched noise" << WH << " scratch your ears.\n";
 }
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-std::string	Animal::getType() const
+std::string	WrongAnimal::getType() const
 {
 	return this->_type;
 }
 
-void Animal::setType(std::string type)
+void 		WrongAnimal::setType(std::string type)
 {
 	this->_type = type;
 }

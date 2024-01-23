@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <string>
+# include "colors.hpp"
 
 class Animal
 {
@@ -11,14 +12,14 @@ class Animal
 	public:
 		Animal();
 		Animal(Animal const &src);
-		~Animal();
+		virtual ~Animal();
 		Animal &operator=(Animal const &rhs);
 
-		std::string	getType();
-		void	makeSound();
-};
+		std::string	getType() const;
+		void		setType(std::string type);
 
-std::ostream &operator<<(std::ostream &o, Animal const &instance);
+		virtual void	makeSound() const;
+};
 
 
 #endif /* ************************************************************* ANIMAL_HPP */
