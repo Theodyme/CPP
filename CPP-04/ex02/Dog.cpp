@@ -1,32 +1,33 @@
-#include "Cat.hpp"
+#include "Dog.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Cat::Cat() : Animal()
+Dog::Dog()
 {
-	this->_type = "Cat";
+	this->_type = "Dog";
 	this->_brain = new Brain;
 	for (int i = 0; i < 100; i++)
 	{
 		if (i%2)
-			this->_brain->setIdea(i, "Mreow, where's my milk?");
+			this->_brain->setIdea(i, "Woof, I want cuddles!!");
 		else
-			this->_brain->setIdea(i, "Zzzzzzz");
+			this->_brain->setIdea(i, "Let's play outside !!!!");
 	}
-	std::cout << "It's actually a cute little " GR << this->_type << WH << " !\n";
+	std::cout << "It's actually a fierce, friendly " GR << this->_type << WH << " !\n";
 }
 
-Cat::Cat(const Cat&src) : Animal()
+Dog::Dog(const Dog&src)
 {
 	this->_type = src._type;
 	this->_brain = new Brain();
-	for (int i = 0; i < 100; i++)
-	{
-		this->_brain->setIdea(i, src._brain->getIdea(i));
-	}
-	std::cout << "It's actually a cute little " GR << this->_type << WH << " ! (copy)\n";
+	*this = src;
+	// for (int i = 0; i < 100; i++)
+	// {
+	// 	this->_brain->setIdea(i, src._brain->getIdea(i));
+	// }
+	std::cout << "It's actually a fierce, friendly " GR << this->_type << WH << " ! (copy)\n";
 }
 
 
@@ -34,9 +35,9 @@ Cat::Cat(const Cat&src) : Animal()
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Cat::~Cat()
+Dog::~Dog()
 {
-	std::cout << "The tiny adorable " GR << this->_type << WH << " returns to its couch.\n";
+	std::cout << "The affectionate " GR << this->_type << WH << " returns to its kennel.\n";
 	delete this->_brain;
 }
 
@@ -45,7 +46,7 @@ Cat::~Cat()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Cat	&Cat::operator=(Cat const &rhs)
+Dog	&Dog::operator=(Dog const &rhs)
 {
 	if (this == &rhs)
 		return (*this);
@@ -63,12 +64,12 @@ Cat	&Cat::operator=(Cat const &rhs)
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	Cat::makeSound() const
+void	Dog::makeSound() const
 {
-	std::cout << "A small and warming \"" GR << "Meooow" << WH << "\" soothes your problems away.\n";
+	std::cout << "A loving and playful \"" GR << "Woof" << WH << "\" warms your heart.\n";
 }
 
-Brain	*Cat::getBrain() const
+Brain	*Dog::getBrain() const
 {
 	return this->_brain;
 }

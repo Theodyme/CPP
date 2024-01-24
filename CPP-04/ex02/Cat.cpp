@@ -4,7 +4,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Cat::Cat() : Animal()
+Cat::Cat()
 {
 	this->_type = "Cat";
 	this->_brain = new Brain;
@@ -18,7 +18,7 @@ Cat::Cat() : Animal()
 	std::cout << "It's actually a cute little " GR << this->_type << WH << " !\n";
 }
 
-Cat::Cat(const Cat&src) : Animal()
+Cat::Cat(const Cat&src)
 {
 	this->_type = src._type;
 	this->_brain = new Brain();
