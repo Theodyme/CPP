@@ -57,7 +57,10 @@ std::string	Brain::getIdea(int i) const
 
 void	Brain::setIdea(int i, std::string idea)
 {
-	this->_ideas[i] = idea;
+	if (i < 100)
+		this->_ideas[i] = idea;
+	else
+		std::cout << "There's " << CY << "too much to think" << WH << "! Couldn't organize brain.\n";
 }
 
 
