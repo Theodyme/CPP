@@ -12,7 +12,7 @@ Bureaucrat::Bureaucrat(std::string name) : _name(name), _grade(150)
 	std::cout << RE << *this << WH << " constructor called.\n";
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
+Bureaucrat::Bureaucrat(std::string name, unsigned int grade) : _name(name)
 {
 	try
 	{
@@ -29,7 +29,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 	}
 }
 
-Bureaucrat::Bureaucrat(int grade) : _name("John Doe")
+Bureaucrat::Bureaucrat(unsigned int grade) : _name("John Doe")
 {
 	try
 	{
@@ -88,7 +88,7 @@ size_t Bureaucrat::getGrade() const
 
 /*                                   SETTERS                                  */
 
-void	Bureaucrat::setGrade(int grade)
+void	Bureaucrat::setGrade(unsigned int grade)
 {
 	try
 	{

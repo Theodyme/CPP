@@ -14,8 +14,8 @@ class Bureaucrat
 	// CONSTRUCTEURS
 		Bureaucrat();
 		Bureaucrat(std::string name);
-		Bureaucrat(std::string name, int grade);
-		Bureaucrat(int grade);
+		Bureaucrat(std::string name, unsigned int grade);
+		Bureaucrat(unsigned int grade);
 		Bureaucrat(const Bureaucrat&src);
 
 	// DESTRUCTEURS
@@ -26,11 +26,10 @@ class Bureaucrat
 
 	// GETTERS
 		std::string const getName() const;
-		size_t getGrade() const;
+		unsigned int getGrade() const;
 
 	// SETTERS
-		void	setGrade(int grade);
-		void	setName(std::string name);
+		void	setGrade(unsigned int grade);
 
 	// METHODS
 		void	upgrade();
