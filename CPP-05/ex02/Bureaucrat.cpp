@@ -117,9 +117,14 @@ void	Bureaucrat::downgrade()
 	this->setGrade(this->getGrade() + 1);
 }
 
-void	Bureaucrat::signForm(Form &form)
+void	Bureaucrat::signAForm(AForm &AForm)
 {
-	form.beSigned(*this);
+	AForm.beSigned(*this);
+}
+
+void	Bureaucrat::executeForm(AForm &AForm)
+{
+	AForm.execute(*this);
 }
 
 /*                                 EXCEPTIONS                                 */

@@ -4,10 +4,10 @@
 
 Form::Form() : _name("A random boring form"), _is_signed(false), _x_requisite(0), _s_requisite(0)
 {
-	std::cout << RE << *this << WH << " constructor called.\n";
+	std::cout << *this << " constructor called.\n";
 }
 
-Form::Form(std::string name, unsigned int x_requisite, unsigned int s_requisite) : _name(name), _is_signed(false)
+Form::Form(std::string name, unsigned int x_requisite, unsigned int s_requisite) : _name(name), _is_signed(false), _x_requisite(x_requisite), _s_requisite(s_requisite)
 {
 	try
 	{
@@ -15,9 +15,7 @@ Form::Form(std::string name, unsigned int x_requisite, unsigned int s_requisite)
 			throw Form::GradeTooHighException();
 		else if (x_requisite > 150 || s_requisite > 150)
 			throw Form::GradeTooLowException();
-		this->_x_requisite = x_requisite;
-		this->_s_requisite = s_requisite;
-		std::cout << RE << *this << WH << " constructor called.\n";
+		std::cout << *this << " constructor called.\n";
 	}
 	catch(const std::exception& e)
 	{
@@ -30,49 +28,93 @@ Form::Form(const Form&src) : _name(src.getName()), _x_requisite(src.getXRequisit
 	this->_is_signed = src.isSigned();
 }
 
-/////////// REPRENDRE A PARTIR DE LAAAAAAAAA //////////////
-
 /*                                DESTRUCTEURS                                */
 
-Bureaucrat::~Bureaucrat()
+Form::~Form()
 {
-	std::cout << RE << this->_name << WH << " destructor called.\n";
+	std::cout << BL << this->_name << WH << " form destructor called.\n";
 }
 
 /*                              OPERATOR OVERLOAD                             */
 
-Bureaucrat &Bureaucrat::operator=(const Bureaucrat&rhs)
+Form &Form::operator=(const Form&rhs)
 {
 	if (this == &rhs)
 		return *this;
-	this->_grade = rhs.getGrade();
+	this->_is_signed = rhs.isSigned();
 	return *this;
 }
 
-std::ostream& operator<<(std::ostream& o, const Bureaucrat&person)
+std::ostream& operator<<(std::ostream& o, const Form&form)
 {
-	o << RE << person.getName() << ", bureaucrat grade " << person.getGrade()<< WH;
+	o << "[" << BL << form.getName() << WH << " form: ";
+	if (form.isSigned())
+		o << BL << "signed, ";
+	else
+		o << BL << "unsigned, ";
+	o << form.getSRequisite() << WH << " required to sign, ";
+	o << BL << form.getXRequisite() << WH << " required to execute.]";
 	return o;
 }
 
 /*                                   GETTERS                                  */
 
+std::string const Form::getName() const
+{
+	return this->_name;
+}
 
+bool Form::isSigned() const
+{
+	return this->_is_signed;
+}
+
+unsigned int Form::getXRequisite() const
+{
+	return this->_x_requisite;
+}
+
+unsigned int Form::getSRequisite() const
+{
+	return this->_s_requisite;
+}
 
 /*                                   SETTERS                                  */
 
-
+void	Form::beSigned(Bureaucrat &employee)
+{
+	try
+	{
+		if (employee.getGrade() > this->getSRequisite())
+		{
+			throw Form::GradeTooLowException();
+		}
+		else {
+			if (this->_is_signed)
+				std::cout << "This [" << BL << this->_name << WH << " form] is already signed!\n";
+			else
+			{
+				std::cout << "[" << BL << this->_name << " form" << WH << "] has been signed by " << employee << ".\n";
+				this->_is_signed = true;
+			}
+		}
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << employee << "'s grade is too low to sign [" << BL << this->_name << WH << " form]! (grade " << BL << this->getSRequisite() << WH << " needed)\n";
+	}
+}
 
 /*                                   METHODS                                  */
 
 /*                                 EXCEPTIONS                                 */
 
-const char* Bureaucrat::GradeTooHighException::what() const throw()
+const char* Form::GradeTooHighException::what() const throw()
 {
 	return "Grade too high!";
 }
 
-const char* Bureaucrat::GradeTooLowException::what() const throw()
+const char* Form::GradeTooLowException::what() const throw()
 {
 	return "Grade too low!";
 }

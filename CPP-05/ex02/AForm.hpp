@@ -1,5 +1,5 @@
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AForm_HPP
+# define AForm_HPP
 
 # include <iostream>
 # include <string>
@@ -8,7 +8,7 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 	private:
 		const std::string	_name;
@@ -17,14 +17,14 @@ class Form
 		const unsigned int	_s_requisite;
 	public:
 	// CONSTRUCTEURS
-		Form();
-		Form(std::string name, unsigned int x_requisite, unsigned int s_requisite);
-		Form(const Form&src);
+		AForm();
+		AForm(std::string name, unsigned int x_requisite, unsigned int s_requisite);
+		AForm(const AForm&src);
 	// DESTRUCTEURS
-		~Form();
+		virtual ~AForm();
 
 	// OPERATOR OVERLOAD
-		Form &operator=(const Form&rhs);
+		AForm &operator=(const AForm&rhs);
 
 	// GETTERS
 		std::string const getName() const;
@@ -34,6 +34,8 @@ class Form
 
 	// SETTERS
 		void	beSigned(Bureaucrat &employee);
+
+		virtual void execute(Bureaucrat &executor) const = 0;
 
 	// EXCEPTIONS
 	class GradeTooHighException : public std::exception
@@ -49,8 +51,15 @@ class Form
 
 	};
 
+	class FormNotSigned : public std::exception
+	{
+		public:
+			virtual const char* what() const throw();
+
+	};
+
 };
 
-std::ostream& operator<<(std::ostream& os, const Form& form);
+std::ostream& operator<<(std::ostream& os, const AForm& AForm);
 
 # endif
