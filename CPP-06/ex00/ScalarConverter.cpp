@@ -1,6 +1,7 @@
 #include "ScalarConverter.hpp"
 
 /*                                CONSTRUCTEURS                               */
+
 ScalarConverter::ScalarConverter() { }
 
 ScalarConverter::ScalarConverter(const ScalarConverter&src)
@@ -12,6 +13,11 @@ ScalarConverter::ScalarConverter(const ScalarConverter&src)
 ScalarConverter::~ScalarConverter() { }
 
 /*                              OPERATOR OVERLOAD                             */
+
+ScalarConverter	&ScalarConverter::operator=(ScalarConverter const &rhs)
+{
+	return *this;
+}
 
 /*                                   METHODS                                  */
 

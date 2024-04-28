@@ -29,19 +29,16 @@ class ScalarConverter
 	private:
 		std::string _trarg;
 		Type _type;
-
 		long int	_int;
 		double _double;
 		float _float;
 		char _char;
-	// CONSTRUCTEURS
+
 		ScalarConverter();
 		ScalarConverter(const ScalarConverter&src);
-	// DESTRUCTEURS
 		~ScalarConverter();
 	public:
-	// OPERATOR OVERLOAD
-	// METHODS
+		ScalarConverter	&operator=(ScalarConverter const &rhs);
 		int	trimming(void);
 		void firstCheck(void);
 		void printChar();
