@@ -13,8 +13,8 @@ class Array
 		Array();
 		Array(unsigned int n);
 		Array(Array const &src);
-		Array &operator=(Array const &rhs) { }
+		Array &operator=(Array const &rhs);
+		T& Array::operator[](unsigned int index);
 };
-
 
 #endif
