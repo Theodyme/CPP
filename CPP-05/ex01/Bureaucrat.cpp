@@ -109,14 +109,19 @@ void	Bureaucrat::setGrade(unsigned int grade)
 
 void	Bureaucrat::upgrade()
 {
-	this->setGrade(this->getGrade() - 1);
+	if (this->getGrade() <= 1)
+		throw Bureaucrat::GradeTooHighException();
+	else
+		this->setGrade(this->getGrade() - 1);
 }
 
 void	Bureaucrat::downgrade()
 {
-	this->setGrade(this->getGrade() + 1);
+	if (this->getGrade() >= 150)
+		throw Bureaucrat::GradeTooHighException();
+	else
+		this->setGrade(this->getGrade() + 1);
 }
-
 void	Bureaucrat::signForm(Form &form)
 {
 	form.beSigned(*this);
