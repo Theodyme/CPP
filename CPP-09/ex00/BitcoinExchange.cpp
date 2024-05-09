@@ -24,6 +24,12 @@ BitcoinExchange::~BitcoinExchange()
 {
 }
 
+BitcoinExchange &BitcoinExchange::operator=(BitcoinExchange const &rhs)
+{
+	(void)rhs;
+	return *this;
+}
+
 void BitcoinExchange::trimming(std::string totrim)
 {
 	for (size_t i = 0; i < totrim.size(); i++)
@@ -113,7 +119,7 @@ void BitcoinExchange::file_handler(char *filename)
 				char* suffix;
 				double dvalue = strtod(value.c_str(), &suffix);
 				double dprice = strtod(it->second.c_str(), &suffix);
-				std::cout << date << " => " << value << " = " << (dvalue * dprice) << std::endl;	
+				std::cout << date << " => " << value << " = " << (dvalue * dprice) << std::endl;
 			}
 		}
 	}

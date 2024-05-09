@@ -15,9 +15,10 @@ class BitcoinExchange
 		BitcoinExchange();
 		BitcoinExchange(BitcoinExchange const &src);
 		~BitcoinExchange();
+		BitcoinExchange &operator=(BitcoinExchange const &rhs);
 		void trimming(std::string totrim);
 		bool date_checker(std::string date);
-		bool value_checker(std::string value);	
+		bool value_checker(std::string value);
 		void file_handler(char *filename);
 };
 
