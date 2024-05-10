@@ -30,7 +30,6 @@ class Bureaucrat
 
 	// SETTERS
 		void	setGrade(int grade);
-		void	setName(std::string name);
 
 	// METHODS
 		void	upgrade();

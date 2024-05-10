@@ -14,36 +14,22 @@ Bureaucrat::Bureaucrat(std::string name) : _name(name), _grade(150)
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 {
-	try
-	{
-		if (grade < 1)
-			throw Bureaucrat::GradeTooHighException();
-		else if (grade > 150)
-			throw Bureaucrat::GradeTooLowException();
-		this->_grade = grade;
-		std::cout << RE << *this << WH << " constructor called.\n";
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << "Couldn't construct Bureaucrate : " << e.what() << '\n';
-	}
+	if (grade < 1)
+		throw Bureaucrat::GradeTooHighException();
+	else if (grade > 150)
+		throw Bureaucrat::GradeTooLowException();
+	this->_grade = grade;
+	std::cout << RE << *this << WH << " constructor called.\n";
 }
 
 Bureaucrat::Bureaucrat(int grade) : _name("John Doe")
 {
-	try
-	{
-		if (grade < 1)
-			throw Bureaucrat::GradeTooHighException();
-		else if (grade > 150)
-			throw Bureaucrat::GradeTooLowException();
-		this->_grade = grade;
-		std::cout << RE << *this << WH << " constructor called.\n";
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << "Couldn't construct Bureaucrate : " << e.what() << '\n';
-	}
+	if (grade < 1)
+		throw Bureaucrat::GradeTooHighException();
+	else if (grade > 150)
+		throw Bureaucrat::GradeTooLowException();
+	this->_grade = grade;
+	std::cout << RE << *this << WH << " constructor called.\n";
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat&src) : _name(src.getName())
@@ -90,19 +76,12 @@ size_t Bureaucrat::getGrade() const
 
 void	Bureaucrat::setGrade(int grade)
 {
-	try
-	{
-		if (grade < 1)
-			throw Bureaucrat::GradeTooHighException();
-		else if (grade > 150)
-			throw Bureaucrat::GradeTooLowException();
-		else
-			this->_grade = grade;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	if (grade < 1)
+		throw Bureaucrat::GradeTooHighException();
+	else if (grade > 150)
+		throw Bureaucrat::GradeTooLowException();
+	else
+		this->_grade = grade;
 }
 
 /*                                   METHODS                                  */
@@ -118,7 +97,7 @@ void	Bureaucrat::upgrade()
 void	Bureaucrat::downgrade()
 {
 	if (this->getGrade() >= 150)
-		throw Bureaucrat::GradeTooHighException();
+		throw Bureaucrat::GradeTooLowException();
 	else
 		this->setGrade(this->getGrade() + 1);
 }

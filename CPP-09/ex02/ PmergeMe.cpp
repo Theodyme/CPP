@@ -3,12 +3,13 @@
 template<typename T>
 T &mergeInsertSort(T &container)
 {
-	typedef typename T::iterator it;
-	T<std::pair<int, int>, std::pair<int, int>> divided;
+	T<std::pair<int, int>> divided;
+	typedef typename T::iterator Iterator;
 
-	for (it = container.begin(); it != container.end(); it++)
+	for (Iterator it = container.begin(); (it != container.end()) && ((it + 1) != container.end()); it += 2)
 	{
-		
+		std::pair<int, int> pair = std::make_pair(*it, *(it + 1));
+		divided.push_back(pair);
 	}
 
 	return ;

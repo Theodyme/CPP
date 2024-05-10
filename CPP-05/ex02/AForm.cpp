@@ -2,7 +2,7 @@
 
 /*                                CONSTRUCTEURS                               */
 
-AForm::AForm() : _name("A random boring AForm"), _is_signed(false), _x_requisite(0), _s_requisite(0)
+AForm::AForm() : _name("A random boring AForm"), _is_signed(false), _x_requisite(150), _s_requisite(150)
 {
 	std::cout << *this << " constructor called.\n";
 }
