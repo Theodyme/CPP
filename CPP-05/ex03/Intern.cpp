@@ -41,6 +41,11 @@ static AForm *createRobot(const std::string target)
 	return new RobotomyRequestForm(target);
 }
 
+const char* Intern::InvalidFormName::what() const throw()
+{
+	return "Invalid form name!";
+}
+
 AForm *Intern::makeForm(std::string name, std::string target)
 {
 	AForm *(*exec_menu[3])(const std::string target) = {&createForest, &createRobot, &createPardon};
@@ -50,6 +55,6 @@ AForm *Intern::makeForm(std::string name, std::string target)
         if (!name.compare(form_names[i]))
             return exec_menu[i](target);
     }
-	std::cout << "An " << YE << "Intern " << WH << "couldn't create the form called " << YE << name << WH << ".\n";
+	throw Intern::InvalidFormName();
 	return 0;
 }

@@ -27,6 +27,13 @@ class Intern
 		Intern &operator=(const Intern&rhs);
 	// METHODS
 		AForm *makeForm(std::string name, std::string target);
+
+	// EXCEPTIONS
+	class InvalidFormName : public std::exception
+	{
+		public:
+			virtual const char* what() const throw();
+	};
 };
 
 # endif
