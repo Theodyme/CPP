@@ -39,7 +39,7 @@ void ShrubberyCreationForm::execute(Bureaucrat &executor) const
 		else
 		{
 			o.open((this->getTarget() + "_shrubbery").c_str());
-			if (o.is_open())
+			if (o.fail() == false)
 			{
 				o << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣾⣿⣿⣿⣦⡀⠀⠀⠀⠀⠀\n";
 				o << "⠀⠀⠀⢀⣀⣀⡀⠀⢀⣤⣶⠞⠀⠀⠀⢀⣴⣾⣿⣿⣿⣿⣿⣿⣿⣶⣄⠀⠀⠀\n";

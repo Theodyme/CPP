@@ -9,18 +9,11 @@ AForm::AForm() : _name("A random boring AForm"), _is_signed(false), _x_requisite
 
 AForm::AForm(std::string name, unsigned int x_requisite, unsigned int s_requisite) : _name(name), _is_signed(false), _x_requisite(x_requisite), _s_requisite(s_requisite)
 {
-	try
-	{
-		if (x_requisite < 1 || s_requisite < 1)
-			throw AForm::GradeTooHighException();
-		else if (x_requisite > 150 || s_requisite > 150)
-			throw AForm::GradeTooLowException();
-		std::cout << *this << " constructor called.\n";
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << "Couldn't construct AForm : " << e.what() << '\n';
-	}
+	if (x_requisite < 1 || s_requisite < 1)
+		throw AForm::GradeTooHighException();
+	else if (x_requisite > 150 || s_requisite > 150)
+		throw AForm::GradeTooLowException();
+	std::cout << *this << " constructor called.\n";
 }
 
 AForm::AForm(const AForm&src) : _name(src.getName()), _x_requisite(src.getXRequisite()), _s_requisite(src.getSRequisite())

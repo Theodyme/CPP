@@ -9,7 +9,13 @@ END_COLOR	:= \033[0;39m
 # **************************************************************************** #
 # VARIABLES
 
-SRCS	=	$(wildcard *.cpp) 
+SRCS	=	Bureaucrat.cpp \
+			AForm.cpp \
+			PresidentialPardonForm.cpp \
+			RobotomyRequestForm.cpp \
+			ShrubberyCreationForm.cpp \
+			Intern.cpp \
+			main.cpp
 OBJS	=	${SRCS:.cpp=.o}
 NAME	=	cogs
 CC		=	c++
