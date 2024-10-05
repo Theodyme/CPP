@@ -11,7 +11,7 @@ int main(void)
 		Bureaucrat	bureaucrat2("Bubu", 124);
 	//	AForm		AForm1("Alpha", 1, 41);
 
-		PresidentialPardonForm treeForm("some_dude");
+		ShrubberyCreationForm treeForm("some_dude");
 		std::cout << treeForm << std::endl;
 		std::cout << bureaucrat1 << std::endl;
 		std::cout << bureaucrat2 << std::endl;

@@ -1,10 +1,7 @@
-#ifndef PMERGEME_HPP
-#define PMERGEME_HPP
+#pragma once
 
 #include <iostream>
 #include <cstdlib>
 #include <vector>
 #include <deque>
 #include <utility>
-
-#endif

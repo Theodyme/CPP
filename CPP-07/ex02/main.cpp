@@ -7,8 +7,8 @@ int	main(void)
 
     Array< float > test;
 
-    Array< int > intArray( SIZE );
-    Array< int > intArray2( SIZE - 5 );
+    Array< int > intArray(SIZE);
+    Array< int > intArray2(SIZE - 5);
 
     for ( unsigned int i = 0; i < intArray.size(); i++ )
         intArray[i] = i * 2;
@@ -22,7 +22,7 @@ int	main(void)
     try {
         std::cout << "Accessing a valid index: " << intArray[5] << std::endl;
         std::cout << "Accessing an invalid index: " << intArray[SIZE] << std::endl;
-    } catch ( Array< int >::OutOfBoundsException& e ) {
+    } catch ( Array< int >::OutofRange& e ) {
         std::cout << "Error: " << e.what() << std::endl;
     }
 

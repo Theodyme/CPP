@@ -10,7 +10,7 @@ class Bureaucrat;
 
 class AForm
 {
-	private:
+	protected:
 		const std::string	_name;
 		bool _is_signed;
 		const unsigned int	_x_requisite;
