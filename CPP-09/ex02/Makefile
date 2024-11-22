@@ -9,7 +9,7 @@ END_COLOR	:= \033[0;39m
 # **************************************************************************** #
 # VARIABLES
 
-SRCS	=	$(wildcard *.cpp)
+SRCS	=	main.cpp
 OBJS	=	${SRCS:.cpp=.o}
 NAME	=	PmergeMe
 CC		=	c++
